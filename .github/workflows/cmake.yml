@@ -7,7 +7,8 @@ on:
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
-  NAME: hello
+  ART_NAME: linux
+  FILENAME: hello
 
 jobs:
   build:
@@ -31,5 +32,6 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v3.0.0
       with:
-        name: ${{env.NAME}}
+        name: ${{env.ART_NAME}}
+        path: ./${{env.FILENAME}}
       
