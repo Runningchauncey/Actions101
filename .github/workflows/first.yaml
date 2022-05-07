@@ -1,0 +1,21 @@
+name: first
+
+on: [push, pull_request]
+
+jobs:
+  job1: 
+    name: first
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Step one
+        uses: actions/checkout@v3
+      - name: Step two
+        run: env | sort
+  job2:
+    name: second
+    runs-on: windows-latest
+    steps:
+      - name: Step one
+        uses: actions/checkout@v3
+      - name: Step two
+        run: "Get-ChildItem Env: | Sort-Object Name"
