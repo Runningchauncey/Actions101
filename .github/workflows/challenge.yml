@@ -1,0 +1,36 @@
+name: challenge
+on: push
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: step one
+        uses: actions/checkout@v3
+      - name: print date
+        run: date
+  job2:
+    name: Job 2
+    runs-on: windows-latest
+    steps:
+      - name: step one
+        uses: actions/checkout@v3
+      - name: print date
+        run: "date"
+  job3:
+    name: Job 3
+    runs-on: macos-latest
+    steps:
+      - name: step one
+        uses: actions/checkout@v3
+      - name: print date
+        run: date
+  job4:
+    name: Job 4
+    runs-on: ubuntu-20.04
+    needs: [job1, job2, job3]
+    steps:
+      - name: step one
+        uses: actions/checkout@v2
+      - name: print date
+        run: date

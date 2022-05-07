@@ -19,3 +19,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Step two
         run: "Get-ChildItem Env: | Sort-Object Name"
+  # new job with dependencies on job1 and job2
+  job3:
+    name: third
+    runs-on: ubuntu-latest
+    needs: [job1, job2]
+    steps:
+      - name: Step one
+        uses: actions/checkout@v3
+      - name: Step two
+        run: ls -a
